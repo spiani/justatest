@@ -10,3 +10,6 @@ hello: $(OBJ)
 
 clean:
 	@rm -f *.mod *.o hello
+
+check: hello
+	./hello | diff tests/reference_file -
