@@ -24,12 +24,6 @@ jobs:
           - compiler_name: intel
             compiler: intel
             compiler_version: 2023.2
-          - os: ubuntu-latest
-            generator: "Unix Makefiles"
-          - os: macos-latest
-            generator: "Unix Makefiles"
-          - os: windows-latest
-            generator: "MinGW Makefiles"
         exclude:
           - os: macos-latest
             compiler_name: intel
@@ -43,23 +37,11 @@ jobs:
     - name: Check out repository code
       uses: actions/checkout@v4
 
-    - name: Envs
-      run: env
-
-    - name: which
-      run: which gfortran
-      continue-on-error: true
-
-    - name: which2
-      run: which icc
-      continue-on-error: true
-
     - name: Configure and Build Project
-      run: |
-        cmake -G "${{ matrix.generator }}" -B build
-        cmake --build build
+      uses: threeal/cmake-action@main
+      with:
+        build-dir: build
 
     - name: Run tests
       working-directory: build
       run: ctest
-
