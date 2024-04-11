@@ -52,7 +52,7 @@ jobs:
       run: |
         mkdir build
         cd build
-        cmake ..
+        cmake .. -DCMAKE_Fortran_COMPILER=$FC
         make
 
     - name: Run tests
