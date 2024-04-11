@@ -50,10 +50,8 @@ jobs:
 
     - name: Configure and Build Project
       run: |
-        mkdir build
-        cd build
-        cmake .. -DCMAKE_Fortran_COMPILER=$FC
-        make
+        cmake -DCMAKE_Fortran_COMPILER=$FC -B build
+        cmake --build build
 
     - name: Run tests
       working-directory: build
