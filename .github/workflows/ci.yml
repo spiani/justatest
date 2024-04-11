@@ -39,6 +39,14 @@ jobs:
     - name: Envs
       run: env
 
+    - name: which
+      run: which gfortran
+      continue-on-error: true
+
+    - name: which2
+      run: which icc
+      continue-on-error: true
+
     - name: Configure and Build Project
       uses: threeal/cmake-action@main
       with:
