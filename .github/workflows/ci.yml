@@ -49,9 +49,11 @@ jobs:
       continue-on-error: true
 
     - name: Configure and Build Project
-      uses: threeal/cmake-action@main
-      with:
-        build-dir: build
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make
 
     - name: Run tests
       working-directory: build
