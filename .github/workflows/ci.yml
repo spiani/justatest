@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
         compiler_name: [gcc10, gcc13, intel]
         include:
           - compiler_name: gcc13
@@ -35,6 +35,9 @@ jobs:
 
     - name: Check out repository code
       uses: actions/checkout@v4
+
+    - name: Envs
+      run: env
 
     - name: Configure and Build Project
       uses: threeal/cmake-action@main
