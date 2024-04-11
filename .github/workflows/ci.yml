@@ -25,11 +25,11 @@ jobs:
             compiler: intel
             compiler_version: 2023.2
           - os: ubuntu-latest
-          - generator: "Unix Makefiles"
+            generator: "Unix Makefiles"
           - os: macos-latest
-          - generator: "Unix Makefiles"
+            generator: "Unix Makefiles"
           - os: windows-latest
-          - generator: "MinGW Makefiles"
+            generator: "MinGW Makefiles"
         exclude:
           - os: macos-latest
             compiler_name: intel
