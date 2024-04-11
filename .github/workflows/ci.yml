@@ -56,7 +56,7 @@ jobs:
 
     - name: Configure and Build Project
       run: |
-        cmake -G ${{ matrix.generator }} -B build
+        cmake -G "${{ matrix.generator }}" -B build
         cmake --build build
 
     - name: Run tests
