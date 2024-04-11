@@ -20,5 +20,5 @@ enable_testing()
 # define tests
 add_test(
   NAME check_output
-  COMMAND ${CMAKE_SOURCE_DIR}/tests/check_executable_output.sh $<TARGET_FILE:hello> ${CMAKE_SOURCE_DIR}/tests/reference_file
+  COMMAND bash ${CMAKE_SOURCE_DIR}/tests/check_executable_output.sh $<TARGET_FILE:hello> ${CMAKE_SOURCE_DIR}/tests/reference_file
 )
